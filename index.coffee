@@ -111,13 +111,13 @@ main = ->
     bird.body.velocity.y = 100 if bird.body.velocity.y > 0
     bird.animations.stop()
     bird.frame = 1
-    instText.setText "TOUCH\nTO TRY AGAIN"
+    instText.setText "Tocame\ne intentanlo otra vez"
     instText.renderable = true
     hiscore = window.localStorage.getItem("hiscore")
     hiscore = (if hiscore then hiscore else score)
     hiscore = (if score > parseInt(hiscore, 10) then score else hiscore)
-    window.localStorage.setItem "hiscore", hiscore
-    gameOverText.setText "GAMEOVER\n\nHIGH SCORE\n\n" + hiscore
+    window.localStorage.setItem "MaracaChimba", hiscore
+    gameOverText.setText "Perdedor\n\nCare Chimba\n\n" + hiscore
     gameOverText.renderable = true
 
     # Stop all tubes
