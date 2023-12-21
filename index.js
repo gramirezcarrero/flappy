@@ -11999,7 +11999,7 @@ var DEBUG,
                     (t = t ? t : score),
                     (t = score > parseInt(t, 10) ? score : t),
                     window.localStorage.setItem("hiscore", t),
-                    gameOverText.setText(textosCharros()+"\n\nCarechimba\n\n" + t),
+                    gameOverText.setText(textosCharros()+"\n\(Puntaje)\n\n" + t),
                     (gameOverText.renderable = !0),
                     tubes.forEachAlive(function (t) {
                         t.body.velocity.x = 0;
