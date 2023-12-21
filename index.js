@@ -11,11 +11,21 @@ function textosCharros(){
         "Más sabe el \ndiablo por \nviejo que\n por diablo.",
         "A falta de pan,\n tortillas.",
         "Más vale tarde\n que nunca.",
-        "El que mucho abarca, \npoco aprieta.",
-        "Camaron que se duerme,\n se lo lleva la corriente.",
-        "A caballo \nregalado no se\n le mira el colmillo.",
+        "El que mucho\n abarca, po\nco aprieta.",
+        "El que mucho\n abarca, po\nco aprieta.",
+        "Camaron que\n se duerme,\n se lo lleva \n la corriente.",
+        "A caballo \nregalado no se\n le mira \nel colmillo.",
         "Quien con lobos\n anda, a aullar\n se enseña.",
-        "El que busca,\n encuentra."
+        "El que busca,\n encuentra.",
+        "¿Por qué el\n JavaScript fue\n al terapeuta? \n¡Porque tenía\n problemas\n con el closure!",
+        "¿Cuál es el\n dulce favorito\n de los\n desarrolladores? \n¡El código de\n barras!",
+        "¿Cómo se\n mantiene saludable\n el programador?\n ¡Corriendo en\n loops!",
+        "¿Por qué\n el programador\n no abre la\n nevera? ¡Porque\n tiene miedo\n del byte!",
+        "¿Qué le dijo\n el JavaScript\n al HTML? \n¡Tú me completas!",
+        "¿Por qué \nel CSS fue\n a terapia? \n¡Tenía muchos\n problemas de\n estilo!",
+        "¿Cuál es el\n animal favorito\n del programador?\n ¡El bufferfish!",
+        "¿Por qué los\n programadores\n prefieren la\n Navidad en \nhexadecimal?\n ¡Porque tiene\n más 'Festas'!",
+        "¿Cómo llamas\n a un programador \nde buen humor?\n ¡Comediante binario!"
     ];
     
     let indiceAleatorio = Math.floor(Math.random() * textosCharros.length);
