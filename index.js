@@ -24,13 +24,9 @@ function textosCharros(){
         "Quien con lobos\n anda, a aullar\n se enseña.",
         "El que busca,\n encuentra.",
         "Esto es más\n montañero que\n una arepa de\n chócolo.",
-        "¡Esto es tan\n montañero que\n parece un paseo\n por el campo!",
-        "¡Esto tiene más\n montañero que un\n día de feria\n campesina!",
-        "Esto es de\n lo más montañero que\n he visto en\n mucho tiempo.",
-        "¡Es tan montañero\n como un atardecer\n en el Valle de\n Cocora!",
-        "¡Esto tiene\n más sabor a montaña\n que el café recién\n cosechado!",
-        "Esto es tan\n montañero como un sombrero\n aguadeño.",
-        "¡Esto es puro\n paisa de \ncorazón!"
+        "¡Acá traje\n la parva\n para que tomemos\n el algo!",
+        "Cuando pasa\n un silletero\n es antioquia\n la que pasa",
+        "No por mucho\n madrugar, amanece\n más temprano."
     ];
     
     let indiceAleatorio = Math.floor(Math.random() * textosCharros.length);
