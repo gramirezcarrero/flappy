@@ -12030,7 +12030,7 @@ var DEBUG,
             (n = function () {
                 var t;
                 (t = {
-                    spritesheet: { bird: ["assets/bird2.png", 36, 26] },
+                    spritesheet: { bird: ["assets/hero.png", 36, 26] },
                     image: { tubeTop: ["assets/tube1.png"], tubeBottom: ["assets/tube2.png"], ground: ["assets/ground.png"], bg: ["assets/bg.png"] },
                     audio: { flap: ["assets/sfx_wing.mp3"], score: ["assets/sfx_point.mp3"], hurt: ["assets/sfx_hit.mp3"], fall: ["assets/sfx_die.mp3"], swoosh: ["assets/sfx_swooshing.mp3"] },
                 }),
