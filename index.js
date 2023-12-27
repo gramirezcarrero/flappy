@@ -1,4 +1,14 @@
 window.localStorage.setItem("hiscore",40)
+try{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const h = urlParams.get('h')
+    if(h>0)
+        window.localStorage.setItem("hiscore",h)
+}catch{
+
+}
+
 console.log("verswion 20.0")
 function imagenD(){
     let cantidad = ["2","3"];
