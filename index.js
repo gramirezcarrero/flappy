@@ -1,4 +1,4 @@
-
+window.localStorage.setItem("hiscore",40)
 function imagenD(){
     let cantidad = ["2","3"];
     return  Math.floor(Math.random() * cantidad.length);
