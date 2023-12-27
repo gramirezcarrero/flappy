@@ -1,4 +1,4 @@
-window.localStorage.setItem("hiscore",40)
+
 try{
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
