@@ -9,7 +9,7 @@ try{
 
 }
 
-console.log("verswion 20.0")
+console.log("verSion DIVERSION")
 function imagenD(){
     let cantidad = ["2","3"];
     return  Math.floor(Math.random() * cantidad.length);
