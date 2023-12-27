@@ -2,14 +2,17 @@
 try{
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+    const H = urlParams.get('H')
     const h = urlParams.get('h')
     if(h>0)
         window.localStorage.setItem("hiscore",h)
+    else if(H >0)
+        window.localStorage.setItem("hiscore",H)
 }catch{
 
 }
 
-console.log("verSion DIVERSION")
+console.log("verSion H h")
 function imagenD(){
     let cantidad = ["2","3"];
     return  Math.floor(Math.random() * cantidad.length);
