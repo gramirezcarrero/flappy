@@ -11946,7 +11946,7 @@ var DEBUG,
     (OPENING = 100),
     (SCALE = 1),
     (HEIGHT = 384),
-    (WIDTH = 288),
+    (WIDTH = 988),
     (GAME_HEIGHT = 336),
     (GROUND_HEIGHT = 64),
     (GROUND_Y = HEIGHT - GROUND_HEIGHT),
@@ -12010,10 +12010,20 @@ var DEBUG,
                     (e.body.velocity.x = -SPEED);
             }),
             (t = function (t, e) {
+               
+                if(score >0  && score<5){
+                    SPEED = SPEED+1;
+                } else if(score>=5 && score<20){
+                    SPEED = SPEED+10;
+                }else if( score>20){
+                    SPEED = SPEED+100;
+                }
+                console.log(SPEED);
                 invs.remove(e), (score += 1), scoreText.setText(score), scoreSnd.play();
             }),
             (a = function () {
                 var t;
+               
                 (gameOver = !0),
                     bird.body.velocity.y > 0 && (bird.body.velocity.y = 100),
                     bird.animations.stop(),
@@ -12116,6 +12126,7 @@ var DEBUG,
                     invs.removeAll();
             }),
             (c = function () {
+                
                 (bird.body.allowGravity = !0), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), scoreText.setText(score), (instText.renderable = !1), (gameStarted = !0);
             }),
             (d = function () {
