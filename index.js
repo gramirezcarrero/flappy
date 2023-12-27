@@ -1,4 +1,5 @@
 window.localStorage.setItem("hiscore",40)
+console.log("verswion 20.0")
 function imagenD(){
     let cantidad = ["2","3"];
     return  Math.floor(Math.random() * cantidad.length);
