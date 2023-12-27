@@ -12023,7 +12023,7 @@ var DEBUG,
             }),
             (a = function () {
                 var t;
-               
+                SPEED = 150;
                 (gameOver = !0),
                     bird.body.velocity.y > 0 && (bird.body.velocity.y = 100),
                     bird.animations.stop(),
