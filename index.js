@@ -1,4 +1,34 @@
+function setScore(t){
+    t = parseInt(t)
+    let o = {"name": localStorage.getItem("player")||"p1", score:t};
+    if(localStorage.getItem("scores")!= null){
 
+         var s_ = JSON.parse(window.localStorage.scores)
+         s_.push(o);
+       
+        window.localStorage.setItem('scores',JSON.stringify(s_));
+    } else{
+        window.localStorage.setItem('scores',JSON.stringify([o]));
+    }
+    return "\n\(Más alto)\n" + t;
+}
+
+function getScores(t){
+    
+    let txt = '';
+    if(localStorage.getItem("scores")!= null){
+
+        var s_ = JSON.parse(window.localStorage.scores)
+        s_.sort((a, b) => b.score - a.score);
+        let primerosDiez = s_.slice(0, 3);
+        for(var e in primerosDiez){
+            txt +=`\n${primerosDiez[e].name} -> ${primerosDiez[e].score}\n`
+        }
+        
+    }
+    
+    return txt;
+}
 try{
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -11971,7 +12001,7 @@ var DEBUG,
     (fallSnd = null),
     (swooshSnd = null),
     (tubesTimer = null),
-    (githubHtml = '<iframe src="http://ghbtns.com/github-btn.html?user=hyspace&repo=flappy&type=watch&count=true&size=large"\nallowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>'),
+    (githubHtml = '<div><a href="perfil.html">Perfil</a></div>'),
     (floor = Math.floor),
     (main = function () {
         var t, e, i, s, n, r, o, a, h, l, c, u, d;
@@ -12024,6 +12054,9 @@ var DEBUG,
             (a = function () {
                 var t;
                 SPEED = 150;
+                setScore(score);
+            //    debugger
+                
                 (gameOver = !0),
                     bird.body.velocity.y > 0 && (bird.body.velocity.y = 100),
                     bird.animations.stop(),
@@ -12034,7 +12067,7 @@ var DEBUG,
                     (t = t ? t : score),
                     (t = score > parseInt(t, 10) ? score : t),
                     window.localStorage.setItem("hiscore", t),
-                    gameOverText.setText(textosCharros()+"\n\(Más alto)\n" + t),
+                    gameOverText.setText(textosCharros()+getScores(t)),
                     (gameOverText.renderable = !0),
                     tubes.forEachAlive(function (t) {
                         t.body.velocity.x = 0;
@@ -12049,6 +12082,8 @@ var DEBUG,
                         });
                     }),
                     hurtSnd.play();
+                   
+                    
             }),
             (i = function () {
                 var t;
@@ -12124,6 +12159,8 @@ var DEBUG,
                     bird.animations.play("fly"),
                     tubes.removeAll(),
                     invs.removeAll();
+                    
+
             }),
             (c = function () {
                 
