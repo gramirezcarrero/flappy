@@ -11969,7 +11969,7 @@ var DEBUG,
     tubes,
     tubesTimer;
 (DEBUG = !1),
-    (SPEED = 160),
+    (SPEED = 190),
     (GRAVITY = 1100),
     (FLAP = 320),
     (SPAWN_RATE = 1 / 1200),
@@ -12053,7 +12053,7 @@ var DEBUG,
             }),
             (a = function () {
                 var t;
-                SPEED = 150;
+                SPEED = 190;
                 setScore(score);
             //    debugger
                 
