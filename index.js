@@ -11965,6 +11965,7 @@ var DEBUG,
     score,
     scoreSnd,
     scoreText,
+    speedText,
     swooshSnd,
     tubes,
     tubesTimer;
@@ -11993,6 +11994,7 @@ var DEBUG,
     (ground = null),
     (score = null),
     (scoreText = null),
+    (speedText = null),
     (instText = null),
     (gameOverText = null),
     (flapSnd = null),
@@ -12049,7 +12051,7 @@ var DEBUG,
                     SPEED = SPEED-10;
                 }
                 console.log(SPEED);
-                invs.remove(e), (score += 1), scoreText.setText(score), scoreSnd.play();
+                invs.remove(e), (score += 1), scoreText.setText(score),speedText.setText("Player:"+localStorage.player+"\n"+"Speed:"+ SPEED), scoreSnd.play();
             }),
             (a = function () {
                 var t;
@@ -12131,7 +12133,12 @@ var DEBUG,
                     bird.body.setPolygon(24, 1, 34, 16, 30, 32, 20, 24, 12, 34, 2, 12, 14, 2),
                     (ground = s.add.tileSprite(0, GROUND_Y, WIDTH, GROUND_HEIGHT, "ground")),
                     ground.tileScale.setTo(SCALE, SCALE),
-                    (scoreText = s.add.text(s.world.width / 2, s.world.height / 4, "", { font: '16px "Press Start 2P"', fill: "#fff", stroke: "#430", strokeThickness: 4, align: "center" })),
+                    (speedText = s.add.text(s.world.width *0.2, s.world.height / 4, "", { font: '6px "Press Start 2P"', fill: "#fff", stroke: "#430", strokeThickness: 4, align: "left" })),
+                    speedText.anchor.setTo(0.5, 0.5),
+                    (
+                        scoreText = 
+                        s.add.text(s.world.width / 2, s.world.height / 4, "", { font: '16px "Press Start 2P"', fill: "#fff", stroke: "#430", strokeThickness: 4, align: "center" })
+                        ),
                     scoreText.anchor.setTo(0.5, 0.5),
                     (instText = s.add.text(s.world.width / 2, s.world.height - s.world.height / 4, "", { font: '8px "Press Start 2P"', fill: "#fff", stroke: "#430", strokeThickness: 4, align: "center" })),
                     instText.anchor.setTo(0.5, 0.5),
@@ -12164,7 +12171,7 @@ var DEBUG,
             }),
             (c = function () {
                 
-                (bird.body.allowGravity = !0), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), scoreText.setText(score), (instText.renderable = !1), (gameStarted = !0);
+                (bird.body.allowGravity = !0), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), speedText.setText("player: "+localStorage.player+"\n"+"speed: "+ SPEED),scoreText.setText(score), (instText.renderable = !1), (gameStarted = !0);
             }),
             (d = function () {
                 var e;
