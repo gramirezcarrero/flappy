@@ -12164,7 +12164,7 @@ var DEBUG,
             }),
             (c = function () {
                 
-                (bird.body.allowGravity = !0), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), scoreText.setText(score), (instText.renderable = !1), (gameStarted = !0);
+                (bird.body.allowGravity = !0), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), scoreText.setText(localStorage.player||"p1 "+score + " " + SPEED), (instText.renderable = !1), (gameStarted = !0);
             }),
             (d = function () {
                 var e;
