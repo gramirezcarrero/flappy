@@ -12049,7 +12049,7 @@ var DEBUG,
                     SPEED = SPEED-10;
                 }
                 console.log(SPEED);
-                invs.remove(e), (score += 1), scoreText.setText(score), scoreSnd.play();
+                invs.remove(e), (score += 1), scoreText.setText(localStorage.player||"p1 "+score + " " + SPEED), scoreSnd.play();
             }),
             (a = function () {
                 var t;
