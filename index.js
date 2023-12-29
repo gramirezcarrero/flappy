@@ -12042,11 +12042,11 @@ var DEBUG,
             (t = function (t, e) {
                
                 if(score >0  && score<5){
-                    SPEED = SPEED+1;
-                } else if(score>=5 && score<20){
                     SPEED = SPEED+10;
+                } else if(score>=5 && score<20){
+                    SPEED = SPEED+5;
                 }else if( score>20){
-                    SPEED = SPEED+100;
+                    SPEED = SPEED-10;
                 }
                 console.log(SPEED);
                 invs.remove(e), (score += 1), scoreText.setText(score), scoreSnd.play();
