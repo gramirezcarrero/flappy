@@ -6,6 +6,36 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
         #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
@@ -51,9 +81,10 @@
     
     <div id="github">
         <label for="name">Name</label> <input type="text" id="name" name="name">
-        <div onclick="save()">
-            <a href="index.html">
-            Play
+        <a href="index.html">
+
+        <input type="submit" value="Submit" onclick="save()">
+            
         </a>
     </div>
    
@@ -88,10 +119,18 @@ const result = scores.reduce((acc, { name, score }) => {
 for (const name in result) {
   result[name] = result[name].total / result[name].count;
 }
+// Convert the result object into an array of key-value pairs
+const resultArray = Object.entries(result);
 
-console.log(result);
-let labels = Object.keys(result);
-let data = Object.values(result);
+// Sort the array based on the average score in descending order
+resultArray.sort((a, b) => b[1] - a[1]);
+
+// Convert the sorted array back to an object
+const sortedResult = Object.fromEntries(resultArray);
+
+console.log(sortedResult);
+let labels = Object.keys(sortedResult);
+let data = Object.values(sortedResult);
 console.log(labels)
        /* var tables = '<tr class="header"><th style="width:60%;">Name</th><th style="width:40%;">Country</th></tr>';
         for(var e in scores){
