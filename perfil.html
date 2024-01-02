@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
@@ -57,10 +58,15 @@
     </div>
    
     </div>
-    <pre id="results">
 
-    </pre>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+    <!-- <pre id="results">
+
+    </pre> -->
+    <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."> -->
 
 <table id="myTable">
   
@@ -69,7 +75,25 @@
 
     <script>
         var scores = JSON.parse(localStorage.getItem("scores")).sort((a, b) => b.score - a.score);
-        var tables = '<tr class="header"><th style="width:60%;">Name</th><th style="width:40%;">Country</th></tr>';
+        
+const result = scores.reduce((acc, { name, score }) => {
+  if (!acc[name]) {
+    acc[name] = { total: 0, count: 0 };
+  }
+  acc[name].total += score;
+  acc[name].count++;
+  return acc;
+}, {});
+
+for (const name in result) {
+  result[name] = result[name].total / result[name].count;
+}
+
+console.log(result);
+let labels = Object.keys(result);
+let data = Object.values(result);
+console.log(labels)
+       /* var tables = '<tr class="header"><th style="width:60%;">Name</th><th style="width:40%;">Country</th></tr>';
         for(var e in scores){
             tables +="<tr>";
             scores[e].name;
@@ -95,7 +119,27 @@
       }
     }       
   }
-}
+}*/
+const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: '# Scores',
+        data,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
     </script>
 </body>
 </html>
