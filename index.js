@@ -1,3 +1,9 @@
+let tube1= "assets/tube1.png";
+let tube2= "assets/tube2.png";
+if(localStorage.getItem("player") == "gero173221471128449987466696"){
+    tube1= "assets/tube12.png";
+    tube2= "assets/tube22.png";
+}
 function setScore(t){
     t = parseInt(t)
     let o = {"name": localStorage.getItem("player")||"p1", score:t};
@@ -12103,7 +12109,7 @@ var DEBUG,
                 var t;
                 (t = {
                     spritesheet: { bird: ["assets/bird.png", 36, 26] },
-                    image: { tubeTop: ["assets/tube1.png"], tubeBottom: ["assets/tube2.png"], ground: ["assets/ground.png"], bg: ["assets/bg2.png"] },
+                    image: { tubeTop: [tube1], tubeBottom: [tube2], ground: ["assets/ground.png"], bg: ["assets/bg2.png"] },
                     audio: { flap: ["assets/sfx_wing.mp3"], score: ["assets/sfx_point.mp3"], hurt: ["assets/sfx_hit.mp3"], fall: ["assets/sfx_die.mp3"], swoosh: ["assets/sfx_swooshing.mp3"] },
                 }),
                     Object.keys(t).forEach(function (e) {
