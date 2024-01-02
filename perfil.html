@@ -8,6 +8,8 @@
         function save(){
             window.localStorage.setItem("player", document.getElementById("name").value);
         }
+        
+       
     </script>
 </head>
 <body>
@@ -19,6 +21,13 @@
             Play
         </a>
     </div>
+   
     </div>
+    <pre id="results">
+
+    </pre>
+    <script>
+          document.getElementById("results").innerHTML =  JSON.stringify(JSON.parse(localStorage.getItem("scores")).sort((a, b) => b.score - a.score), undefined, 2)
+    </script>
 </body>
 </html>
