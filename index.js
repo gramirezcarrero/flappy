@@ -49,6 +49,7 @@ try{
 }
 
 console.log("verSion H h")
+
 function imagenD(){
     let cantidad = ["2","3"];
     return  Math.floor(Math.random() * cantidad.length);
@@ -87,6 +88,7 @@ function textosCharros(){
     "function" == typeof define && define.amd ? define(e) : "object" == typeof exports ? (module.exports = e()) : (t.Phaser = e());
 })(this, function () {
     function t() {
+        
         return (e.Matrix = "undefined" != typeof Float32Array ? Float32Array : Array), e.Matrix;
     }
     var e = e || {},
@@ -11957,6 +11959,7 @@ var DEBUG,
     deadTubeTops,
     fallSnd,
     flapSnd,
+    bgSnd,
     floor,
     gameOver,
     gameOverText,
@@ -12004,6 +12007,7 @@ var DEBUG,
     (instText = null),
     (gameOverText = null),
     (flapSnd = null),
+    (bgSnd = null),
     (scoreSnd = null),
     (hurtSnd = null),
     (fallSnd = null),
@@ -12015,6 +12019,7 @@ var DEBUG,
         var t, e, i, s, n, r, o, a, h, l, c, u, d;
         (h = function (t, e) {
             var i, n, r;
+           
             return (
                 (i = null),
                 (n = e ? "tubeTop" : "tubeBottom"),
@@ -12046,6 +12051,7 @@ var DEBUG,
                               .reset(i.x + i.width / 2, 0))
                         : ((e = invs.create(i.x + i.width / 2, 0)), (e.width = 2), (e.height = s.world.height), (e.body.allowGravity = !1)),
                     (e.body.velocity.x = -SPEED);
+                   
             }),
             (t = function (t, e) {
                
@@ -12058,12 +12064,14 @@ var DEBUG,
                 }
                 console.log(SPEED);
                 invs.remove(e), (score += 1), scoreText.setText(score),speedText.setText("Player:"+localStorage.player+"\n"+"Speed:"+ SPEED), scoreSnd.play();
+                // ,bgSnd.stop(),bgSnd.play();
             }),
             (a = function () {
                 var t;
                 SPEED = 190;
+                
                 setScore(score);
-            //    debugger
+               //debugger
                 
                 (gameOver = !0),
                     bird.body.velocity.y > 0 && (bird.body.velocity.y = 100),
@@ -12095,6 +12103,7 @@ var DEBUG,
             }),
             (i = function () {
                 var t;
+                
                 gameStarted || c(),
                     gameOver ||
                         ((bird.body.gravity.y = 0),
@@ -12110,7 +12119,7 @@ var DEBUG,
                 (t = {
                     spritesheet: { bird: ["assets/bird.png", 36, 26] },
                     image: { tubeTop: [tube1], tubeBottom: [tube2], ground: ["assets/ground.png"], bg: ["assets/bg2.png"] },
-                    audio: { flap: ["assets/sfx_wing.mp3"], score: ["assets/sfx_point.mp3"], hurt: ["assets/sfx_hit.mp3"], fall: ["assets/sfx_die.mp3"], swoosh: ["assets/sfx_swooshing.mp3"] },
+                    audio: { bg:["assets/bg.mp3"] ,flap: ["assets/sfx_wing.mp3"], score: ["assets/sfx_point.mp3"], hurt: ["assets/sfx_hit.mp3"], fall: ["assets/sfx_die.mp3"], swoosh: ["assets/sfx_swooshing.mp3"] },
                 }),
                     Object.keys(t).forEach(function (e) {
                         Object.keys(t[e]).forEach(function (i) {
@@ -12152,6 +12161,7 @@ var DEBUG,
                     gameOverText.anchor.setTo(0.5, 0.5),
                     gameOverText.scale.setTo(SCALE, SCALE),
                     (flapSnd = s.add.audio("flap")),
+                    (bgSnd= s.add.audio("bg")),
                     (scoreSnd = s.add.audio("score")),
                     (hurtSnd = s.add.audio("hurt")),
                     (fallSnd = s.add.audio("fall")),
@@ -12177,7 +12187,7 @@ var DEBUG,
             }),
             (c = function () {
                 
-                (bird.body.allowGravity = !0), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), speedText.setText("player: "+localStorage.player+"\n"+"speed: "+ SPEED),scoreText.setText(score), (instText.renderable = !1), (gameStarted = !0);
+                (bird.body.allowGravity = !0),bgSnd.stop(),bgSnd.play(), (bird.body.gravity.y = GRAVITY), (tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l)), speedText.setText("Player: "+localStorage.player+"\n"+"speed: "+ SPEED),scoreText.setText(score), (instText.renderable = !1), (gameStarted = !0);
             }),
             (d = function () {
                 var e;
